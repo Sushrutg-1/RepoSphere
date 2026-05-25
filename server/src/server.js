@@ -9,7 +9,7 @@ import { revertRepo } from "./controllers/revert.js";
 import { argv } from "process";
 
 yargs(hideBin(process.argv))
-  .command("init", "Innitialise a new repository", {}, initRepo)
+  .command("init", "Initialise a new repository", {}, initRepo)
   .command(
     "add <file>",
     "Add a file to repository",
