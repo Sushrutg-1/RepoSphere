@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { initRepo } from "./controllers/init.js";
@@ -7,8 +8,22 @@ import { pushRepo } from "./controllers/push.js";
 import { pullRepo } from "./controllers/pull.js";
 import { revertRepo } from "./controllers/revert.js";
 import { argv } from "process";
+import { connectDB } from "./config/db.config.js";
+import app from "./app.js";
+
+dotenv.config();
+
+const PORT = process.env.PORT;
+
+const startServer = () => {
+  connectDB();
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log("Server Is Running......");
+  });
+};
 
 yargs(hideBin(process.argv))
+  .command("start", "Start a server!", {}, startServer)
   .command("init", "Initialise a new repository", {}, initRepo)
   .command(
     "add <file>",
