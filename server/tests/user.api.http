@@ -1,0 +1,59 @@
+# User signup or register
+POST http://localhost:8000/user/register HTTP/1.1
+Content-Type:  application/json
+
+{
+    "email" : "user6@gmail.com",
+    "password" : "user6",
+    "username" : "user6"
+}
+
+###
+
+# User login
+POST http://localhost:8000/user/login HTTP/1.1
+Content-Type:  application/json
+
+{
+    "password" : "user6",
+    "email" : "user6@gmail.com"
+  
+}
+
+###
+
+# Get all user
+GET http://localhost:8000/user HTTP/1.1
+Content-Type:  application/json
+
+
+###
+
+
+# Get user by id
+GET http://localhost:8000/user/6a157c7b1234dd7cb021b8ad HTTP/1.1
+Content-Type:  application/json
+
+
+
+###
+
+
+# Update user details
+PUT  http://localhost:8000/user/6a15a018ad44267db9f0ba36 HTTP/1.1
+Content-Type:  application/json
+
+{
+    "password" : "user6",
+    "email" : "user6@gmail.com",
+    "username" : "user6"
+}
+
+
+###
+# Delete user
+DELETE  http://localhost:8000/user/6a15a018ad44267db9f0ba36 HTTP/1.1
+Content-Type:  application/json
+
+###
+

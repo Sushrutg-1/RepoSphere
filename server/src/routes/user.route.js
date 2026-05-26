@@ -1,8 +1,16 @@
 import express, { Router } from "express";
-import { activeCheck } from "../controllers/user.controller.js";
+import { deleteUserProfile, getAllUsers, getUserProfileById, loginUser, registerUser, updateUserProfile } from "../controllers/user.controller.js";
 
 const router = Router();
 
-router.route("/").get(activeCheck);
+//Auth
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+
+//user
+router.get("/", getAllUsers);
+router.get("/:id", getUserProfileById);
+router.put("/:id", updateUserProfile);
+router.delete("/:id", deleteUserProfile);
 
 export default router;
