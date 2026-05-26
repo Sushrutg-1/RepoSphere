@@ -18,6 +18,7 @@
     "express": "^5.2.1",
     "http": "^0.0.1-security",
     "mongoose": "^9.6.2",
+    "socket.io": "^4.8.3",
     "uuid": "^14.0.0",
     "ws": "^8.21.0",
     "yargs": "^18.0.0"

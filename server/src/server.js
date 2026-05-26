@@ -10,14 +10,49 @@ import { revertRepo } from "./controllers/revert.js";
 import { argv } from "process";
 import { connectDB } from "./config/db.config.js";
 import app from "./app.js";
+import http, { METHODS } from "http";
+import { Server } from "socket.io";
+import cors from "cors";
+import mongoose from "mongoose";
 
 dotenv.config();
 
 const PORT = process.env.PORT;
 
-const startServer = () => {
-  connectDB();
-  app.listen(PORT, "0.0.0.0", () => {
+const startServer = async () => {
+  await connectDB();
+
+  const httpServer = http.createServer(app);
+
+  const io = new Server(httpServer, {
+    cors: {
+      origin: "*",
+      methods: ["GET", "POST"],
+    },
+  });
+
+  let user = "test";
+
+  io.on("connection", (socket) => {
+    console.log("Socket Connected");
+
+    socket.on("joinRoom", (userId) => {
+      user = userId;
+      console.log("===");
+      console.log(user);
+      console.log("===");
+
+      socket.join(userId);
+    });
+  });
+
+  const db = mongoose.connection;
+
+  db.once("open", async () => {
+    console.log("CRUD OPERATION CALLED");
+  });
+
+  httpServer.listen(PORT, "0.0.0.0", () => {
     console.log("Server Is Running......");
   });
 };
