@@ -1,6 +1,5 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { MongoClient } from "mongodb";
 import User from "../models/user.model.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -19,7 +18,7 @@ export const registerUser = async (req, res) => {
     if (existingUserByUsername) {
       return res
         .status(400)
-        .json({ messgae: "Username already exists.", success: false });
+        .json({ message: "Username already exists.", success: false });
     }
 
     const existingUserByEmail = await User.findOne({ email });
@@ -50,7 +49,9 @@ export const registerUser = async (req, res) => {
     });
   } catch (error) {
     console.error("Error while registering user : ", error.message);
-    return res.status(500).json({ message: error.message, success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
@@ -90,13 +91,15 @@ export const loginUser = async (req, res) => {
       .json({ success: true, message: "Login successfull.", token });
   } catch (error) {
     console.error("Error while login : ", error.message);
-    return res.status(500).json({ message: error.message, success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
 export const getAllUsers = async (req, res) => {
   try {
-    const allUser = await User.find({});
+    const allUser = await User.find({}).select("-password");
     return res.status(200).json({
       success: true,
       message: "All user fetched successfull.",
@@ -111,14 +114,16 @@ export const getAllUsers = async (req, res) => {
 export const getUserProfileById = async (req, res) => {
   try {
     const { id: userId } = req.params;
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select("-password");
 
     return res
       .status(200)
       .json({ success: true, message: "User fetched successfully.", user });
   } catch (error) {
     console.error("Error while geting user by id : ", error.message);
-    return res.status(500).json({ success: false, message: error.message });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 
@@ -126,6 +131,7 @@ export const updateUserProfile = async (req, res) => {
   try {
     const { id: userId } = req.params;
     const { email: newEmail, username: newUsername, password } = req.body;
+    let isUpdated = false;
 
     if (!password) {
       return res
@@ -140,7 +146,7 @@ export const updateUserProfile = async (req, res) => {
       });
     }
 
-    let user = await User.findById(userId);
+    let user = await User.findById(userId).select("-password");
     if (!user) {
       return res
         .status(400)
@@ -155,7 +161,7 @@ export const updateUserProfile = async (req, res) => {
       });
     }
 
-    if (newEmail) {
+    if (newEmail && newEmail !== user.email) {
       const existingEmail = await User.findOne({ email: newEmail });
       if (existingEmail) {
         return res
@@ -163,9 +169,10 @@ export const updateUserProfile = async (req, res) => {
           .json({ success: false, message: "Email is already exists." });
       }
       user.email = newEmail;
+      isUpdated = true;
     }
 
-    if (newUsername) {
+    if (newUsername && newUsername !== user.username) {
       const existingUsername = await User.findOne({ username: newUsername });
       if (existingUsername) {
         return res
@@ -173,6 +180,16 @@ export const updateUserProfile = async (req, res) => {
           .json({ success: false, message: "Username is already exists." });
       }
       user.username = newUsername;
+      isUpdated = true;
+    }
+
+    if (!isUpdated) {
+      await user.save();
+      return res.status(200).json({
+        success: true,
+        message: "No changes detects",
+        user,
+      });
     }
 
     await user.save();
@@ -183,7 +200,9 @@ export const updateUserProfile = async (req, res) => {
     });
   } catch (error) {
     console.error("Error while updating user details : ", error.message);
-    return res.status(500).json({ message: error.message, success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
@@ -191,19 +210,20 @@ export const deleteUserProfile = async (req, res) => {
   try {
     const { id: userId } = req.params;
 
-    const user = await User.findById(userId);
-    if (!user) {
+    const deleteUser = await User.findByIdAndDelete(userId);
+    if (!deleteUser) {
       return res
         .status(400)
         .json({ message: "User not found.", success: false });
     }
 
-    await User.findByIdAndDelete(userId);
     return res
       .status(200)
       .json({ message: "User deleted successfully", success: true });
   } catch (error) {
     console.error("Error while deleting user. : ", error.message);
-    return res.status(500).json({ message: error.message, success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };

@@ -1,0 +1,45 @@
+# create new issue
+POST http://localhost:8000/issue/ HTTP/1.1
+Content-Type:  application/json
+
+{
+    "title" : "testIssue1",
+    "description" : "this is testIssue1",
+    "status" : "open",
+    "repoId" : "6a1603fe8e99f2cb12557c99"
+}
+
+###
+
+# get all issues
+GET  http://localhost:8000/issue/ HTTP/1.1
+Content-Type:  application/json
+
+
+###
+
+# get  issues by id
+GET  http://localhost:8000/issue/6a1610ba354043fec56f119d HTTP/1.1
+Content-Type:  application/json
+
+
+###
+
+# update issues 
+PUT http://localhost:8000/issue/6a1612290c9c9ac73237c817 HTTP/1.1
+Content-Type:  application/json
+
+{
+    "title" : "updateIssue",
+    "description" : "this is UpdateIssue",
+    "status" : "closed"
+   
+}
+
+###
+
+# delete issues 
+DELETE  http://localhost:8000/issue/6a1610ba354043fec56f119d HTTP/1.1
+Content-Type:  application/json
+
+###

@@ -9,8 +9,8 @@ import {
 
 const router = Router();
 
-router.get("/", getAllIssues);
 router.post("/", createIssue);
+router.get("/", getAllIssues);
 router.get("/:id", getIssueById);
 router.put("/:id", updateIssue);
 router.delete("/:id", deleteIssue);

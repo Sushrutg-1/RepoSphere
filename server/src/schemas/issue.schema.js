@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const IssueSchema = new mongoose.Schema({
   title: {
@@ -7,7 +7,7 @@ const IssueSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    requred: true,
+    required: true,
   },
   status: {
     type: String,

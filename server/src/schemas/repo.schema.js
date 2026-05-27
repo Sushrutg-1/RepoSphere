@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const RepositorySchema = new mongoose.Schema({
   name: {
@@ -14,6 +14,7 @@ const RepositorySchema = new mongoose.Schema({
   content: [
     {
       type: String,
+      default: [],
     },
   ],
   owner: {
@@ -27,6 +28,7 @@ const RepositorySchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Issue",
+      default: [],
     },
   ],
 });
