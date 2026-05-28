@@ -1,0 +1,38 @@
+.mainContainer {
+  display: flex;
+}
+
+.mainContainer_left {
+  border: 0.5px solid silver;
+  flex: 4;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.userProfile_container {
+  width: 75px;
+  height: 75px;
+}
+
+.userProfile {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.mainContainer_right {
+  border: 0.5px solid silver;
+  flex: 6;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.repoCard {
+  border: 0.5px solid silver;
+  border-radius: 10px;
+  padding: 1.2rem;
+}

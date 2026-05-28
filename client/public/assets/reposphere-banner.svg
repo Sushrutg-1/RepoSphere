@@ -1,0 +1,119 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" width="1200" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D0D1A"/>
+      <stop offset="60%" style="stop-color:#0F0F2A"/>
+      <stop offset="100%" style="stop-color:#1A1A2E"/>
+    </linearGradient>
+    <linearGradient id="sphere" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF"/>
+      <stop offset="100%" style="stop-color:#3ECFCF"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6C63FF"/>
+      <stop offset="100%" style="stop-color:#3ECFCF"/>
+    </linearGradient>
+    <linearGradient id="dot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#FFA94D"/>
+    </linearGradient>
+    <radialGradient id="halo1" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#6C63FF;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="halo2" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#3ECFCF;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#3ECFCF;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.06" stroke="#6C63FF" stroke-width="0.5">
+    <line x1="0" y1="50" x2="1200" y2="50"/>
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="150" x2="1200" y2="150"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="250" x2="1200" y2="250"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="350" x2="1200" y2="350"/>
+    <line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="400" y1="0" x2="400" y2="400"/>
+    <line x1="500" y1="0" x2="500" y2="400"/>
+    <line x1="600" y1="0" x2="600" y2="400"/>
+    <line x1="700" y1="0" x2="700" y2="400"/>
+    <line x1="800" y1="0" x2="800" y2="400"/>
+    <line x1="900" y1="0" x2="900" y2="400"/>
+    <line x1="1000" y1="0" x2="1000" y2="400"/>
+    <line x1="1100" y1="0" x2="1100" y2="400"/>
+  </g>
+
+  <!-- Sphere halo -->
+  <circle cx="200" cy="200" r="180" fill="url(#halo1)"/>
+  <circle cx="200" cy="200" r="130" fill="url(#halo2)"/>
+
+  <!-- Main sphere -->
+  <circle cx="200" cy="200" r="130" fill="none" stroke="url(#sphere)" stroke-width="2.5"/>
+  <ellipse cx="200" cy="200" rx="130" ry="46" fill="none" stroke="url(#sphere)" stroke-width="1.5" opacity="0.45"/>
+  <ellipse cx="200" cy="200" rx="130" ry="90" fill="none" stroke="url(#sphere)" stroke-width="1" opacity="0.2"/>
+  <ellipse cx="200" cy="200" rx="46" ry="130" fill="none" stroke="url(#sphere)" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- Commit nodes on sphere -->
+  <circle cx="200" cy="70" r="10" fill="url(#dot)" filter="url(#glow)"/>
+  <circle cx="330" cy="200" r="10" fill="url(#dot)" filter="url(#glow)"/>
+  <circle cx="200" cy="330" r="10" fill="url(#dot)" filter="url(#glow)"/>
+  <circle cx="70" cy="200" r="10" fill="url(#dot)" filter="url(#glow)"/>
+
+  <!-- Branch connectors -->
+  <line x1="200" y1="70" x2="330" y2="200" stroke="#FF6B6B" stroke-width="2" opacity="0.5" stroke-dasharray="6 4"/>
+  <line x1="330" y1="200" x2="200" y2="330" stroke="#FFA94D" stroke-width="2" opacity="0.5" stroke-dasharray="6 4"/>
+  <line x1="200" y1="330" x2="70" y2="200" stroke="#6C63FF" stroke-width="2" opacity="0.5" stroke-dasharray="6 4"/>
+  <line x1="70" y1="200" x2="200" y2="70" stroke="#3ECFCF" stroke-width="2" opacity="0.5" stroke-dasharray="6 4"/>
+
+  <!-- Right side: Text content -->
+  <!-- Main headline -->
+  <text x="430" y="140" font-family="'Georgia', serif" font-size="70" font-weight="700" fill="#FFFFFF" letter-spacing="-2">Repo</text>
+  <text x="430" y="140" font-family="'Georgia', serif" font-size="70" font-weight="700" fill="url(#word)" letter-spacing="-2" dx="166">Sphere</text>
+
+  <!-- Subtitle -->
+  <text x="432" y="190" font-family="'Courier New', monospace" font-size="15" fill="#3ECFCF" letter-spacing="5" opacity="0.9">VERSION CONTROL · REIMAGINED</text>
+
+  <!-- Divider -->
+  <line x1="432" y1="210" x2="900" y2="210" stroke="#6C63FF" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Description -->
+  <text x="432" y="248" font-family="'Georgia', serif" font-size="22" fill="#FFFFFF" opacity="0.75">Track every commit. Branch freely.</text>
+  <text x="432" y="280" font-family="'Georgia', serif" font-size="22" fill="#FFFFFF" opacity="0.75">Ship with confidence.</text>
+
+  <!-- CTA pills -->
+  <rect x="432" y="308" width="160" height="44" rx="22" fill="#6C63FF"/>
+  <text x="512" y="336" font-family="'Courier New', monospace" font-size="13" fill="white" text-anchor="middle" font-weight="700">$ reposphere</text>
+
+  <rect x="608" y="308" width="160" height="44" rx="22" fill="none" stroke="#3ECFCF" stroke-width="1.5"/>
+  <text x="688" y="336" font-family="'Courier New', monospace" font-size="13" fill="#3ECFCF" text-anchor="middle">Read the docs</text>
+
+  <!-- Small floating commit chips (right side decoration) -->
+  <rect x="980" y="80" width="160" height="36" rx="8" fill="#1A1A2E" stroke="#6C63FF" stroke-width="1" opacity="0.7"/>
+  <circle cx="997" cy="98" r="5" fill="#3ECFCF"/>
+  <text x="1010" y="103" font-family="'Courier New', monospace" font-size="11" fill="#FFFFFF" opacity="0.8">feat: add auth</text>
+
+  <rect x="1000" y="140" width="160" height="36" rx="8" fill="#1A1A2E" stroke="#FF6B6B" stroke-width="1" opacity="0.7"/>
+  <circle cx="1017" cy="158" r="5" fill="#FF6B6B"/>
+  <text x="1030" y="163" font-family="'Courier New', monospace" font-size="11" fill="#FFFFFF" opacity="0.8">fix: jwt refresh</text>
+
+  <rect x="960" y="200" width="180" height="36" rx="8" fill="#1A1A2E" stroke="#FFA94D" stroke-width="1" opacity="0.7"/>
+  <circle cx="977" cy="218" r="5" fill="#FFA94D"/>
+  <text x="990" y="223" font-family="'Courier New', monospace" font-size="11" fill="#FFFFFF" opacity="0.8">merge: dev → main</text>
+
+  <rect x="990" y="260" width="155" height="36" rx="8" fill="#1A1A2E" stroke="#6C63FF" stroke-width="1" opacity="0.7"/>
+  <circle cx="1007" cy="278" r="5" fill="#6C63FF"/>
+  <text x="1020" y="283" font-family="'Courier New', monospace" font-size="11" fill="#FFFFFF" opacity="0.8">init: reposphere</text>
+</svg>

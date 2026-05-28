@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  height: 90svh;
+  justify-content: center;
+  align-items: center;
+  background: snow;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 30vw;
+  height: 80vh;
+  border: 1px solid silver;
+  border-radius: 8px;
+  padding: 0.8rem;
+  box-shadow: 10px 10px 10px 8px rgb(215, 207, 207);
+}
+
+.headingContainer {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImage {
+  width: 14rem;
+  height: auto;
+}
+
+.contentContainer {
+  text-align: center;
+}
+
+.inputContainer {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-inline: 1.2rem;
+}
+
+.inputRow {
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  /* padding-block: 0.8rem; */
+}
+
+.inputRow > input {
+  padding-block: 0.8rem;
+  padding-inline: 1.2rem;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  background: rgb(224, 222, 222);
+}
+
+/* .wrapper {
+  margin-bottom: 0 auto;
+} */
+
+.submitBtnContainer {
+  display: flex;
+  justify-content: center;
+  padding-block: 1.2rem;
+}
+
+.submitBtn {
+  width: 75%;
+  cursor: pointer;
+  background: rgba(32, 170, 212, 0.914);
+  text-align: center;
+  padding-block: 0.8rem;
+  padding-inline: 1.2rem;
+  border-radius: 8px;
+  /* font-weight: bold; */
+  font-size: medium;
+  outline: none;
+  border: none;
+}
+
+.loginMethod {
+  padding-block: 1.2rem;
+}
+
+.loginMethod > p > span {
+  color: rgb(65, 65, 224);
+  cursor: pointer;
+}

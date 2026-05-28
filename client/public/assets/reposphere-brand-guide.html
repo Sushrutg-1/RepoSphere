@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RepoSphere · Brand Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --primary: #6C63FF;
+    --accent: #3ECFCF;
+    --danger: #FF6B6B;
+    --warning: #FFA94D;
+    --bg-dark: #0D0D1A;
+    --bg-surface: #1A1A2E;
+    --bg-card: #16213E;
+    --text-white: #FFFFFF;
+    --text-muted: #888899;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); }
+
+  .page { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+
+  /* HERO */
+  .hero { text-align: center; padding: 80px 0 60px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(108,99,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 4px; color: var(--accent); margin-bottom: 16px; }
+  .hero-title { font-family: var(--font-display); font-size: 80px; line-height: 1; margin-bottom: 16px; }
+  .hero-title span { background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-family: var(--font-mono); font-size: 14px; color: var(--text-muted); letter-spacing: 3px; }
+
+  /* SECTION */
+  .section { margin: 80px 0; }
+  .section-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 4px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; }
+  .section-title { font-family: var(--font-display); font-size: 36px; color: var(--text-white); margin-bottom: 32px; border-bottom: 0.5px solid rgba(108,99,255,0.3); padding-bottom: 12px; }
+
+  /* LOGO CARDS */
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .logo-card { border-radius: 16px; padding: 48px 32px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .logo-card.light { background: #F8F8FF; }
+  .logo-card.dark { background: var(--bg-surface); border: 0.5px solid rgba(108,99,255,0.2); }
+  .logo-card.dark-pure { background: var(--bg-dark); border: 0.5px solid rgba(62,207,207,0.2); }
+  .logo-card-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--text-muted); }
+
+  /* COLORS */
+  .color-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .color-swatch { border-radius: 12px; overflow: hidden; }
+  .swatch-block { height: 100px; }
+  .swatch-info { background: var(--bg-surface); padding: 10px 12px; }
+  .swatch-name { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--text-white); }
+  .swatch-hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .swatch-role { font-family: var(--font-mono); font-size: 10px; color: var(--accent); margin-top: 4px; letter-spacing: 1px; }
+
+  /* TYPOGRAPHY */
+  .type-sample { background: var(--bg-surface); border-radius: 12px; padding: 32px; margin-bottom: 16px; border: 0.5px solid rgba(108,99,255,0.15); }
+  .type-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 12px; }
+
+  /* COMPONENTS */
+  .component-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .component-card { background: var(--bg-surface); border-radius: 12px; padding: 24px; border: 0.5px solid rgba(108,99,255,0.15); }
+  .component-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 16px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-family: var(--font-mono); font-size: 13px; cursor: pointer; border: none; font-weight: 700; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn-danger { background: transparent; color: var(--danger); border: 1.5px solid var(--danger); }
+
+  /* Badges */
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .badge { font-family: var(--font-mono); font-size: 11px; padding: 4px 10px; border-radius: 20px; }
+  .badge-purple { background: rgba(108,99,255,0.15); color: var(--primary); border: 1px solid rgba(108,99,255,0.3); }
+  .badge-teal { background: rgba(62,207,207,0.12); color: var(--accent); border: 1px solid rgba(62,207,207,0.3); }
+  .badge-red { background: rgba(255,107,107,0.12); color: var(--danger); border: 1px solid rgba(255,107,107,0.3); }
+  .badge-amber { background: rgba(255,169,77,0.12); color: var(--warning); border: 1px solid rgba(255,169,77,0.3); }
+
+  /* Commit card mock */
+  .commit-mock { background: var(--bg-card); border-radius: 8px; padding: 12px 14px; border-left: 3px solid var(--primary); }
+  .commit-hash { font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
+  .commit-msg { font-family: var(--font-mono); font-size: 13px; color: var(--text-white); margin: 4px 0; }
+  .commit-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+
+  /* Input mock */
+  .input-mock { background: var(--bg-dark); border: 1px solid rgba(108,99,255,0.3); border-radius: 8px; padding: 10px 14px; font-family: var(--font-mono); font-size: 13px; color: var(--text-white); width: 100%; }
+
+  /* ICON SVG */
+  .icon-section { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .icon-box { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .icon-box span { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+
+  /* GRADIENT COMBOS */
+  .gradient-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .grad-card { flex: 1; min-width: 150px; height: 70px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; color: white; letter-spacing: 1px; }
+
+  footer { text-align: center; padding: 40px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 2px; border-top: 0.5px solid rgba(108,99,255,0.2); margin-top: 80px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">BRAND IDENTITY SYSTEM · V1.0</p>
+    <h1 class="hero-title">Repo<span>Sphere</span></h1>
+    <p class="hero-sub">VERSION CONTROL · REIMAGINED · MERN STACK</p>
+  </div>
+
+  <!-- LOGOS -->
+  <div class="section">
+    <p class="section-label">01 · Logo</p>
+    <h2 class="section-title">Logo Variations</h2>
+    <div class="logo-grid">
+      <!-- Light bg -->
+      <div class="logo-card light">
+        <svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" width="280">
+          <defs>
+            <linearGradient id="a1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#3ECFCF"/></linearGradient>
+            <linearGradient id="a2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#3ECFCF"/></linearGradient>
+            <linearGradient id="a3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#FFA94D"/></linearGradient>
+          </defs>
+          <circle cx="42" cy="45" r="34" fill="none" stroke="url(#a1)" stroke-width="2"/>
+          <ellipse cx="42" cy="45" rx="34" ry="12" fill="none" stroke="url(#a1)" stroke-width="1.2" opacity="0.5"/>
+          <ellipse cx="42" cy="45" rx="12" ry="34" fill="none" stroke="url(#a1)" stroke-width="1.2" opacity="0.5"/>
+          <circle cx="42" cy="11" r="5" fill="url(#a3)"/>
+          <circle cx="76" cy="45" r="5" fill="url(#a3)"/>
+          <circle cx="42" cy="79" r="5" fill="url(#a3)"/>
+          <circle cx="8" cy="45" r="5" fill="url(#a3)"/>
+          <line x1="42" y1="11" x2="76" y2="45" stroke="#FF6B6B" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <line x1="76" y1="45" x2="42" y2="79" stroke="#FFA94D" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <line x1="42" y1="79" x2="8" y2="45" stroke="#6C63FF" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <line x1="8" y1="45" x2="42" y2="11" stroke="#3ECFCF" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <text x="92" y="38" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#1A1A2E" letter-spacing="-0.5">Repo<tspan fill="url(#a2)">Sphere</tspan></text>
+          <text x="93" y="58" font-family="Courier New,monospace" font-size="9" fill="#6C63FF" letter-spacing="2.5">VERSION CONTROL · REIMAGINED</text>
+        </svg>
+        <span class="logo-card-label">ON LIGHT BACKGROUND</span>
+      </div>
+      <!-- Dark bg -->
+      <div class="logo-card dark">
+        <svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" width="280">
+          <defs>
+            <linearGradient id="b1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#3ECFCF"/></linearGradient>
+            <linearGradient id="b2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#3ECFCF"/></linearGradient>
+            <linearGradient id="b3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#FFA94D"/></linearGradient>
+          </defs>
+          <circle cx="42" cy="45" r="34" fill="none" stroke="url(#b1)" stroke-width="2"/>
+          <ellipse cx="42" cy="45" rx="34" ry="12" fill="none" stroke="url(#b1)" stroke-width="1.2" opacity="0.5"/>
+          <ellipse cx="42" cy="45" rx="12" ry="34" fill="none" stroke="url(#b1)" stroke-width="1.2" opacity="0.5"/>
+          <circle cx="42" cy="11" r="5" fill="url(#b3)"/>
+          <circle cx="76" cy="45" r="5" fill="url(#b3)"/>
+          <circle cx="42" cy="79" r="5" fill="url(#b3)"/>
+          <circle cx="8" cy="45" r="5" fill="url(#b3)"/>
+          <line x1="42" y1="11" x2="76" y2="45" stroke="#FF6B6B" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <line x1="76" y1="45" x2="42" y2="79" stroke="#FFA94D" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <line x1="42" y1="79" x2="8" y2="45" stroke="#6C63FF" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <line x1="8" y1="45" x2="42" y2="11" stroke="#3ECFCF" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 3"/>
+          <text x="92" y="38" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">Repo<tspan fill="url(#b2)">Sphere</tspan></text>
+          <text x="93" y="58" font-family="Courier New,monospace" font-size="9" fill="#3ECFCF" letter-spacing="2.5">VERSION CONTROL · REIMAGINED</text>
+        </svg>
+        <span class="logo-card-label" style="color:#666">ON DARK SURFACE</span>
+      </div>
+      <!-- Icon only -->
+      <div class="logo-card dark-pure">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80">
+          <defs>
+            <linearGradient id="c1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C63FF"/><stop offset="100%" stop-color="#3ECFCF"/></linearGradient>
+            <linearGradient id="c2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="100%" stop-color="#FFA94D"/></linearGradient>
+          </defs>
+          <circle cx="40" cy="40" r="34" fill="none" stroke="url(#c1)" stroke-width="2.5"/>
+          <ellipse cx="40" cy="40" rx="34" ry="12" fill="none" stroke="url(#c1)" stroke-width="1.5" opacity="0.5"/>
+          <ellipse cx="40" cy="40" rx="12" ry="34" fill="none" stroke="url(#c1)" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="40" cy="6" r="6" fill="url(#c2)"/>
+          <circle cx="74" cy="40" r="6" fill="url(#c2)"/>
+          <circle cx="40" cy="74" r="6" fill="url(#c2)"/>
+          <circle cx="6" cy="40" r="6" fill="url(#c2)"/>
+          <line x1="40" y1="6" x2="74" y2="40" stroke="#FF6B6B" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3"/>
+          <line x1="74" y1="40" x2="40" y2="74" stroke="#FFA94D" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3"/>
+          <line x1="40" y1="74" x2="6" y2="40" stroke="#6C63FF" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3"/>
+          <line x1="6" y1="40" x2="40" y2="6" stroke="#3ECFCF" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3"/>
+        </svg>
+        <span class="logo-card-label" style="color:#555">ICON MARK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLORS -->
+  <div class="section">
+    <p class="section-label">02 · Colors</p>
+    <h2 class="section-title">Color System</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:linear-gradient(135deg,#6C63FF,#9C95FF)"></div>
+        <div class="swatch-info"><p class="swatch-name">Primary</p><p class="swatch-hex">#6C63FF</p><p class="swatch-role">BRAND · CTA · LINKS</p></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:linear-gradient(135deg,#3ECFCF,#7EEAEA)"></div>
+        <div class="swatch-info"><p class="swatch-name">Accent</p><p class="swatch-hex">#3ECFCF</p><p class="swatch-role">ACCENT · TAGS · CODE</p></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:linear-gradient(135deg,#FF6B6B,#FF9999)"></div>
+        <div class="swatch-info"><p class="swatch-name">Danger</p><p class="swatch-hex">#FF6B6B</p><p class="swatch-role">ERRORS · ALERTS</p></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:linear-gradient(135deg,#FFA94D,#FFCA80)"></div>
+        <div class="swatch-info"><p class="swatch-name">Warning</p><p class="swatch-hex">#FFA94D</p><p class="swatch-role">WARNINGS · PENDING</p></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:linear-gradient(135deg,#0D0D1A,#1A1A2E)"></div>
+        <div class="swatch-info"><p class="swatch-name">Background</p><p class="swatch-hex">#0D0D1A</p><p class="swatch-role">BG · SURFACE</p></div>
+      </div>
+    </div>
+
+    <br/>
+    <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-bottom:12px;letter-spacing:2px;">GRADIENT COMBINATIONS</p>
+    <div class="gradient-row">
+      <div class="grad-card" style="background:linear-gradient(135deg,#6C63FF,#3ECFCF)">Primary → Accent</div>
+      <div class="grad-card" style="background:linear-gradient(135deg,#FF6B6B,#FFA94D)">Danger → Warning</div>
+      <div class="grad-card" style="background:linear-gradient(135deg,#0D0D1A,#1A1A2E)">Dark BG</div>
+      <div class="grad-card" style="background:linear-gradient(135deg,#6C63FF,#FF6B6B)">Primary → Danger</div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section">
+    <p class="section-label">03 · Typography</p>
+    <h2 class="section-title">Type System</h2>
+
+    <div class="type-sample">
+      <p class="type-meta">DISPLAY · DM SERIF DISPLAY · 64PX</p>
+      <p style="font-family:var(--font-display);font-size:64px;line-height:1;background:linear-gradient(90deg,#6C63FF,#3ECFCF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">RepoSphere</p>
+    </div>
+    <div class="type-sample">
+      <p class="type-meta">HEADING · DM SERIF DISPLAY · 32PX</p>
+      <p style="font-family:var(--font-display);font-size:32px;color:#fff;">Track every commit. Branch freely.</p>
+    </div>
+    <div class="type-sample">
+      <p class="type-meta">MONO · JETBRAINS MONO · 14PX</p>
+      <p style="font-family:var(--font-mono);font-size:14px;color:#3ECFCF;">$ reposphere init my-project</p>
+      <p style="font-family:var(--font-mono);font-size:14px;color:#888;margin-top:6px;">→ Initialized empty RepoSphere repository in ./my-project/.repo</p>
+    </div>
+    <div class="type-sample">
+      <p class="type-meta">BODY · INTER · 16PX</p>
+      <p style="font-family:var(--font-body);font-size:16px;color:#ccc;line-height:1.6;">RepoSphere is a full-stack MERN version control system that tracks every file change, supports branching and merging, and exposes a powerful CLI via Yargs with JWT-secured remote hosting.</p>
+    </div>
+  </div>
+
+  <!-- UI COMPONENTS -->
+  <div class="section">
+    <p class="section-label">04 · Components</p>
+    <h2 class="section-title">UI Kit</h2>
+    <div class="component-grid">
+      <div class="component-card">
+        <p class="component-label">BUTTONS</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <button class="btn btn-primary">$ reposphere push</button>
+          <button class="btn btn-outline">View branches</button>
+          <button class="btn btn-danger">Delete branch</button>
+        </div>
+      </div>
+      <div class="component-card">
+        <p class="component-label">STATUS BADGES</p>
+        <div class="badge-row">
+          <span class="badge badge-teal">merged</span>
+          <span class="badge badge-purple">open</span>
+          <span class="badge badge-red">conflict</span>
+          <span class="badge badge-amber">pending</span>
+          <span class="badge badge-teal">main</span>
+          <span class="badge badge-purple">feature/auth</span>
+        </div>
+      </div>
+      <div class="component-card">
+        <p class="component-label">COMMIT CARD</p>
+        <div class="commit-mock">
+          <p class="commit-hash">a3f9b12</p>
+          <p class="commit-msg">feat: add jwt middleware</p>
+          <p class="commit-meta">@dev · 2 hours ago · main</p>
+        </div>
+        <div class="commit-mock" style="margin-top:8px;border-left-color:#FF6B6B;">
+          <p class="commit-hash" style="color:#FF6B6B;">b1e7c44</p>
+          <p class="commit-msg">fix: resolve merge conflict</p>
+          <p class="commit-meta">@dev · 1 hour ago · feature/auth</p>
+        </div>
+      </div>
+      <div class="component-card">
+        <p class="component-label">CLI INPUT</p>
+        <input class="input-mock" value="$ reposphere commit -m 'init'" readonly/>
+        <input class="input-mock" value="$ reposphere push origin main" readonly style="margin-top:8px;border-color:rgba(62,207,207,0.3);"/>
+        <input class="input-mock" value="$ reposphere log --oneline" readonly style="margin-top:8px;border-color:rgba(255,107,107,0.3);"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAGLINES -->
+  <div class="section">
+    <p class="section-label">05 · Copy</p>
+    <h2 class="section-title">Headlines &amp; Taglines</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="type-sample">
+        <p class="type-meta">HERO HEADLINE</p>
+        <p style="font-family:var(--font-display);font-size:28px;color:#fff;">Version control<br/>for the modern web.</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">SUBHEADLINE</p>
+        <p style="font-family:var(--font-body);font-size:15px;color:#ccc;line-height:1.7;">Push, pull, branch, merge — all from your terminal. RepoSphere brings full-featured version control to your MERN stack with JWT-secured remotes.</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">TAGLINE A</p>
+        <p style="font-family:var(--font-mono);font-size:16px;color:#6C63FF;letter-spacing:2px;">Your code. Every version. Everywhere.</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">TAGLINE B</p>
+        <p style="font-family:var(--font-mono);font-size:16px;color:#3ECFCF;letter-spacing:2px;">Commit to the sphere.</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">TAGLINE C</p>
+        <p style="font-family:var(--font-display);font-size:22px;color:#fff;">Track every commit. Branch freely. Ship with confidence.</p>
+      </div>
+      <div class="type-sample">
+        <p class="type-meta">CLI MOTTO</p>
+        <p style="font-family:var(--font-mono);font-size:16px;color:#FFA94D;">$ reposphere — where code lives.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>REPOSPHERE BRAND GUIDE · V1.0 · BUILT WITH MERN · CLI POWERED BY YARGS · SECURED BY JWT</footer>
+</body>
+</html>

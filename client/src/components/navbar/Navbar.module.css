@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* text-align: center; */
+  padding-inline: 1.2rem;
+  padding-block: 0.3rem;
+  border: 0.5px solid silver;
+}
+
+.navbar_left {
+  flex: 3;
+}
+
+.logoWithName {
+  width: 50%;
+  height: auto;
+}
+
+.navbar_center {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar_center input {
+  width: 70%;
+  padding-inline: 1.2rem;
+  padding-block: 0.8rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  border: 0.5px solid silver;
+}
+
+.navbar_right {
+  flex: 3;
+  display: flex;
+
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.navIteam {
+  background: rgb(86, 171, 195);
+  width: fit-content;
+  padding-inline: 1.2rem;
+  padding-block: 0.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}

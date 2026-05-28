@@ -1,0 +1,31 @@
+.mainContainer {
+  display: flex;
+}
+
+.mainContainer_left {
+  border: 0.5px solid silver;
+  flex: 3;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.mainContainer_center {
+  border: 0.5px solid silver;
+  flex: 4;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.singleRepoCard {
+  border: 0.5px solid black;
+  padding: 1.2rem;
+  border-radius: 10px;
+}
+
+.mainContainer_right {
+  border: 0.5px solid silver;
+  flex: 3;
+}

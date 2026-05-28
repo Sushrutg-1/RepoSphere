@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" width="400" height="120">
+  <defs>
+    <linearGradient id="sphereGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF"/>
+      <stop offset="100%" style="stop-color:#3ECFCF"/>
+    </linearGradient>
+    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#3ECFCF;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="dotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#FFA94D"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sphere icon -->
+  <circle cx="56" cy="60" r="46" fill="url(#sphereGrad)" opacity="0.12"/>
+  <circle cx="56" cy="60" r="38" fill="none" stroke="url(#arcGrad)" stroke-width="2.5"/>
+
+  <!-- Latitude lines -->
+  <ellipse cx="56" cy="60" rx="38" ry="13" fill="none" stroke="url(#arcGrad)" stroke-width="1.5" opacity="0.6"/>
+  <ellipse cx="56" cy="60" rx="38" ry="26" fill="none" stroke="url(#arcGrad)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Meridian vertical -->
+  <ellipse cx="56" cy="60" rx="13" ry="38" fill="none" stroke="url(#arcGrad)" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Commit dots on sphere -->
+  <circle cx="56" cy="22" r="5" fill="url(#dotGrad)" filter="url(#glow)"/>
+  <circle cx="94" cy="60" r="5" fill="url(#dotGrad)" filter="url(#glow)"/>
+  <circle cx="56" cy="98" r="5" fill="url(#dotGrad)" filter="url(#glow)"/>
+  <circle cx="18" cy="60" r="5" fill="url(#dotGrad)" filter="url(#glow)"/>
+
+  <!-- Branch connector lines -->
+  <line x1="56" y1="22" x2="94" y2="60" stroke="#FF6B6B" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="94" y1="60" x2="56" y2="98" stroke="#FFA94D" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="56" y1="98" x2="18" y2="60" stroke="#6C63FF" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3"/>
+  <line x1="18" y1="60" x2="56" y2="22" stroke="#3ECFCF" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3"/>
+
+  <!-- Wordmark -->
+  <text x="116" y="52" font-family="'Georgia', 'Times New Roman', serif" font-size="34" font-weight="700" fill="#1A1A2E" letter-spacing="-1">Repo</text>
+  <text x="116" y="52" font-family="'Georgia', 'Times New Roman', serif" font-size="34" font-weight="700" fill="url(#arcGrad)" letter-spacing="-1" dx="74">Sphere</text>
+
+  <!-- Tagline -->
+  <text x="117" y="76" font-family="'Courier New', monospace" font-size="12" fill="#6C63FF" letter-spacing="3" opacity="0.9">VERSION CONTROL · REIMAGINED</text>
+</svg>

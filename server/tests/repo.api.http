@@ -3,10 +3,10 @@ POST http://localhost:8000/repo/ HTTP/1.1
 Content-Type:  application/json
 
 {
-    "name" : "testRepo2",
-    "description" : "this is test repo1 of user1",
+    "name" : "kailfsdfsdffsd",
+    "description" : "thisfsd is test refsdpo1 of user1",
     "visibility" : true,
-    "userId" : "6a1600804b7cf14fede621b1"
+    "userId" : "6a173671a07af95aa1bb9d8f"
 }
 
 ###

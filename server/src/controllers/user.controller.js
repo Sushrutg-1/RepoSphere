@@ -36,8 +36,8 @@ export const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
     });
-    await user.save();
 
+    await user.save();
     const token = jwt.sign({ id: user._id }, JWT_SECRET, {
       expiresIn: "1h",
     });
@@ -45,6 +45,7 @@ export const registerUser = async (req, res) => {
     res.status(200).json({
       message: "User registered successfully.",
       token: token,
+      userId: user._id,
       success: true,
     });
   } catch (error) {
@@ -86,9 +87,12 @@ export const loginUser = async (req, res) => {
       expiresIn: "1h",
     });
 
-    return res
-      .status(200)
-      .json({ success: true, message: "Login successfull.", token });
+    return res.status(200).json({
+      success: true,
+      message: "Login successfull.",
+      token,
+      userId: user._id,
+    });
   } catch (error) {
     console.error("Error while login : ", error.message);
     return res
@@ -114,7 +118,14 @@ export const getAllUsers = async (req, res) => {
 export const getUserProfileById = async (req, res) => {
   try {
     const { id: userId } = req.params;
-    const user = await User.findById(userId).select("-password");
+    const user = await User.findById(userId)
+      .select("-password")
+      .populate("repositories");
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found." });
+    }
 
     return res
       .status(200)

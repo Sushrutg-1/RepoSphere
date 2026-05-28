@@ -1,0 +1,102 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8F8FF"/>
+      <stop offset="100%" style="stop-color:#F0F0FA"/>
+    </linearGradient>
+    <linearGradient id="purpleG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6C63FF"/>
+      <stop offset="100%" style="stop-color:#9C95FF"/>
+    </linearGradient>
+    <linearGradient id="tealG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3ECFCF"/>
+      <stop offset="100%" style="stop-color:#7EEAEA"/>
+    </linearGradient>
+    <linearGradient id="coralG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#FF9999"/>
+    </linearGradient>
+    <linearGradient id="amberG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFA94D"/>
+      <stop offset="100%" style="stop-color:#FFCA80"/>
+    </linearGradient>
+    <linearGradient id="darkG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0D0D1A"/>
+      <stop offset="100%" style="stop-color:#1A1A2E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Title -->
+  <text x="40" y="54" font-family="'Georgia', serif" font-size="26" font-weight="700" fill="#1A1A2E">RepoSphere</text>
+  <text x="40" y="54" font-family="'Georgia', serif" font-size="26" font-weight="700" fill="#6C63FF" dx="170"> · Color Palette</text>
+  <text x="40" y="78" font-family="'Courier New', monospace" font-size="12" fill="#888" letter-spacing="2">BRAND DESIGN SYSTEM</text>
+
+  <!-- Color swatches row 1 -->
+  <!-- Primary Purple -->
+  <rect x="40" y="110" width="140" height="100" rx="12" fill="url(#purpleG)"/>
+  <rect x="40" y="185" width="140" height="25" rx="0" fill="rgba(0,0,0,0.25)"/>
+  <rect x="40" y="185" width="140" height="25" rx="0 0 12 12" fill="rgba(0,0,0,0.25)"/>
+  <text x="110" y="148" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">Primary</text>
+  <text x="110" y="204" font-family="'Courier New', monospace" font-size="11" fill="white" text-anchor="middle">#6C63FF</text>
+
+  <!-- Teal -->
+  <rect x="200" y="110" width="140" height="100" rx="12" fill="url(#tealG)"/>
+  <rect x="200" y="185" width="140" height="25" rx="0" fill="rgba(0,0,0,0.25)"/>
+  <text x="270" y="148" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">Accent</text>
+  <text x="270" y="204" font-family="'Courier New', monospace" font-size="11" fill="white" text-anchor="middle">#3ECFCF</text>
+
+  <!-- Coral -->
+  <rect x="360" y="110" width="140" height="100" rx="12" fill="url(#coralG)"/>
+  <rect x="360" y="185" width="140" height="25" rx="0" fill="rgba(0,0,0,0.25)"/>
+  <text x="430" y="148" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">Danger / Alert</text>
+  <text x="430" y="204" font-family="'Courier New', monospace" font-size="11" fill="white" text-anchor="middle">#FF6B6B</text>
+
+  <!-- Amber -->
+  <rect x="520" y="110" width="140" height="100" rx="12" fill="url(#amberG)"/>
+  <rect x="520" y="185" width="140" height="25" rx="0" fill="rgba(0,0,0,0.25)"/>
+  <text x="590" y="148" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">Warning</text>
+  <text x="590" y="204" font-family="'Courier New', monospace" font-size="11" fill="white" text-anchor="middle">#FFA94D</text>
+
+  <!-- Dark -->
+  <rect x="680" y="110" width="80" height="100" rx="12" fill="url(#darkG)"/>
+  <rect x="680" y="185" width="80" height="25" rx="0" fill="rgba(255,255,255,0.1)"/>
+  <text x="720" y="148" font-family="'Georgia', serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">Dark BG</text>
+  <text x="720" y="204" font-family="'Courier New', monospace" font-size="10" fill="white" text-anchor="middle">#0D0D1A</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="250" x2="760" y2="250" stroke="#6C63FF" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Color codes section -->
+  <text x="40" y="280" font-family="'Courier New', monospace" font-size="13" fill="#1A1A2E" font-weight="700">Color Tokens</text>
+
+  <!-- Token grid -->
+  <g font-family="'Courier New', monospace" font-size="12">
+    <!-- col 1 -->
+    <rect x="40" y="296" width="10" height="10" rx="2" fill="#6C63FF"/>
+    <text x="58" y="306" fill="#1A1A2E">--color-primary:     #6C63FF</text>
+    <rect x="40" y="318" width="10" height="10" rx="2" fill="#3ECFCF"/>
+    <text x="58" y="328" fill="#1A1A2E">--color-accent:      #3ECFCF</text>
+    <rect x="40" y="340" width="10" height="10" rx="2" fill="#FF6B6B"/>
+    <text x="58" y="350" fill="#1A1A2E">--color-danger:      #FF6B6B</text>
+    <rect x="40" y="362" width="10" height="10" rx="2" fill="#FFA94D"/>
+    <text x="58" y="372" fill="#1A1A2E">--color-warning:     #FFA94D</text>
+    <!-- col 2 -->
+    <rect x="420" y="296" width="10" height="10" rx="2" fill="#0D0D1A"/>
+    <text x="438" y="306" fill="#1A1A2E">--color-bg-dark:     #0D0D1A</text>
+    <rect x="420" y="318" width="10" height="10" rx="2" fill="#1A1A2E"/>
+    <text x="438" y="328" fill="#1A1A2E">--color-bg-surface:  #1A1A2E</text>
+    <rect x="420" y="340" width="10" height="10" rx="2" fill="#FFFFFF" stroke="#DDD" stroke-width="0.5"/>
+    <text x="438" y="350" fill="#1A1A2E">--color-text-light:  #FFFFFF</text>
+    <rect x="420" y="362" width="10" height="10" rx="2" fill="#888"/>
+    <text x="438" y="372" fill="#1A1A2E">--color-text-muted:  #888899</text>
+  </g>
+
+  <!-- Typography hint -->
+  <line x1="40" y1="400" x2="760" y2="400" stroke="#6C63FF" stroke-width="0.5" opacity="0.3"/>
+  <text x="40" y="428" font-family="'Georgia', serif" font-size="13" fill="#1A1A2E" font-weight="700">Typography</text>
+  <text x="40" y="450" font-family="'Georgia', serif" font-size="22" fill="#6C63FF">Display · Georgia serif</text>
+  <text x="400" y="450" font-family="'Courier New', monospace" font-size="14" fill="#3ECFCF">$ mono · Courier New</text>
+  <text x="40" y="474" font-family="'Courier New', monospace" font-size="11" fill="#888" letter-spacing="2">reposphere.dev · Built with MERN · Powered by Yargs + JWT</text>
+</svg>

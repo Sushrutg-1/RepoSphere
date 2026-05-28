@@ -1,0 +1,81 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D0D1A"/>
+      <stop offset="100%" style="stop-color:#0F2027"/>
+    </linearGradient>
+    <linearGradient id="arcG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF"/>
+      <stop offset="100%" style="stop-color:#3ECFCF"/>
+    </linearGradient>
+    <linearGradient id="textG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6C63FF"/>
+      <stop offset="100%" style="stop-color:#3ECFCF"/>
+    </linearGradient>
+    <linearGradient id="dotG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#FFA94D"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#6C63FF;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#3ECFCF;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#3ECFCF;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Background glows -->
+  <circle cx="900" cy="315" r="300" fill="url(#glow1)"/>
+  <circle cx="300" cy="315" r="250" fill="url(#glow2)"/>
+
+  <!-- Subtle dot pattern -->
+  <g fill="#6C63FF" opacity="0.08">
+    <circle cx="50" cy="50" r="2"/><circle cx="150" cy="50" r="2"/><circle cx="250" cy="50" r="2"/>
+    <circle cx="50" cy="150" r="2"/><circle cx="150" cy="150" r="2"/><circle cx="250" cy="150" r="2"/>
+    <circle cx="950" cy="500" r="2"/><circle cx="1050" cy="500" r="2"/><circle cx="1150" cy="500" r="2"/>
+    <circle cx="950" cy="580" r="2"/><circle cx="1050" cy="580" r="2"/><circle cx="1150" cy="580" r="2"/>
+  </g>
+
+  <!-- Big sphere - centered -->
+  <circle cx="600" cy="315" r="200" fill="none" stroke="url(#arcG)" stroke-width="2"/>
+  <ellipse cx="600" cy="315" rx="200" ry="70" fill="none" stroke="url(#arcG)" stroke-width="1.5" opacity="0.4"/>
+  <ellipse cx="600" cy="315" rx="70" ry="200" fill="none" stroke="url(#arcG)" stroke-width="1.5" opacity="0.4"/>
+  <ellipse cx="600" cy="315" rx="200" ry="130" fill="none" stroke="url(#arcG)" stroke-width="0.8" opacity="0.15"/>
+
+  <!-- Commit nodes -->
+  <circle cx="600" cy="115" r="14" fill="url(#dotG)" filter="url(#glow)"/>
+  <circle cx="800" cy="315" r="14" fill="url(#dotG)" filter="url(#glow)"/>
+  <circle cx="600" cy="515" r="14" fill="url(#dotG)" filter="url(#glow)"/>
+  <circle cx="400" cy="315" r="14" fill="url(#dotG)" filter="url(#glow)"/>
+
+  <!-- Branch lines -->
+  <line x1="600" y1="115" x2="800" y2="315" stroke="#FF6B6B" stroke-width="2" opacity="0.5" stroke-dasharray="8 5"/>
+  <line x1="800" y1="315" x2="600" y2="515" stroke="#FFA94D" stroke-width="2" opacity="0.5" stroke-dasharray="8 5"/>
+  <line x1="600" y1="515" x2="400" y2="315" stroke="#6C63FF" stroke-width="2" opacity="0.5" stroke-dasharray="8 5"/>
+  <line x1="400" y1="315" x2="600" y2="115" stroke="#3ECFCF" stroke-width="2" opacity="0.5" stroke-dasharray="8 5"/>
+
+  <!-- Text: Main title -->
+  <text x="600" y="260" font-family="'Georgia', serif" font-size="90" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="-3" opacity="0.15">RepoSphere</text>
+  <text x="600" y="390" font-family="'Georgia', serif" font-size="90" font-weight="700" fill="url(#textG)" text-anchor="middle" letter-spacing="-3">RepoSphere</text>
+
+  <!-- Tagline below -->
+  <text x="600" y="440" font-family="'Courier New', monospace" font-size="18" fill="#3ECFCF" text-anchor="middle" letter-spacing="6" opacity="0.85">VERSION CONTROL · REIMAGINED</text>
+
+  <!-- Bottom pills -->
+  <rect x="380" y="510" width="130" height="38" rx="19" fill="#6C63FF" opacity="0.9"/>
+  <text x="445" y="534" font-family="'Courier New', monospace" font-size="13" fill="white" text-anchor="middle">CLI · Yargs</text>
+
+  <rect x="530" y="510" width="130" height="38" rx="19" fill="none" stroke="#3ECFCF" stroke-width="1.5"/>
+  <text x="595" y="534" font-family="'Courier New', monospace" font-size="13" fill="#3ECFCF" text-anchor="middle">MERN Stack</text>
+
+  <rect x="680" y="510" width="130" height="38" rx="19" fill="none" stroke="#FF6B6B" stroke-width="1.5"/>
+  <text x="745" y="534" font-family="'Courier New', monospace" font-size="13" fill="#FF6B6B" text-anchor="middle">JWT Auth</text>
+</svg>
